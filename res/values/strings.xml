@@ -1,0 +1,14 @@
+<?xml version="1.0" encoding="utf-8"?>
+<resources>
+
+    <string name="app_name">FlagsOfTheWorld</string>
+    <string name="action_settings">Settings</string>
+    <string name="hello_world">Hello world!</string>
+    <string name="direction">Match the correct flag of each countries</string>
+    <string name="australia">Australia</string>
+    <string name="algeria">Algeria</string>
+    <string name="albania">Albania</string>
+    <string name="angola">Angola</string>
+    <string name="score">Score:</string>
+
+</resources>

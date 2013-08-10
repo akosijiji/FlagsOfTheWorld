@@ -11,10 +11,12 @@ import android.view.View;
 import android.view.View.DragShadowBuilder;
 import android.view.View.OnDragListener;
 import android.view.View.OnTouchListener;
+import android.view.Window;
+import android.view.WindowManager;
 import android.widget.ImageView;
 import android.widget.TextView;
 
-public class MainActivity extends Activity {
+public class GameActivity extends Activity {
 	
 	TextView tv1, tv2, tv3, tv4;
 	ImageView iv1, iv2, iv3, iv4;
@@ -22,6 +24,9 @@ public class MainActivity extends Activity {
 	@Override
 	protected void onCreate(Bundle savedInstanceState) {
 		super.onCreate(savedInstanceState);
+		requestWindowFeature(Window.FEATURE_NO_TITLE);
+		getWindow().setFlags(WindowManager.LayoutParams.FLAG_FULLSCREEN, 
+        		WindowManager.LayoutParams.FLAG_FULLSCREEN);
 		setContentView(R.layout.activity_main);
 	
 		initControls();
@@ -128,8 +133,21 @@ public class MainActivity extends Activity {
 	        
 	        break;
 	      case DragEvent.ACTION_DRAG_ENDED:
-	    	   if (dropEventNotHandled(event)) 
-	    		  view.setVisibility(View.VISIBLE);
+	    	  // if (dropEventNotHandled(event)) 
+	    		//  view.setVisibility(View.VISIBLE);
+	    	  
+	    	  final View vw = (View) event.getLocalState();
+	    	    vw.post(new Runnable(){
+
+					@Override
+					public void run() {
+						// TODO Auto-generated method stub
+						vw.setVisibility(View.VISIBLE);
+					}
+	    	        
+	    	    });
+	    	  
+	    	  
 	    	break;
 	      default:
 	        break;
